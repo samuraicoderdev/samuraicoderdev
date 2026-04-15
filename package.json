@@ -1,12 +1,16 @@
 {
   "name": "samuraicoderdev",
-  "module": "index.js",
+  "module": "dist/index.js",
   "type": "module",
-  "private": true,
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5"
-  }
+  },
+  "scripts": {
+    "dev": "bun src/index.html --hot",
+    "build": "bun build dist/index.html"
+  },
+  "private": true
 }
