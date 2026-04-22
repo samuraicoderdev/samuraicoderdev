@@ -22,13 +22,16 @@
                     <h3 class="font-semibold text-lg">Loading projects...</h3>
                 </div>
             </div>
+            <div id="projects-list" class="space-y-4">
+                <!-- Project entries will show here -->
+            </div>
             <button 
-                hx-get="/projects/list.html" 
+                hx-get="/projects/netlify-list.html" 
                 hx-target="#projects-list" 
                 hx-swap="innerHTML"
                 class="mt-6 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition"
             >
-                Load Projects
+                View My Netlify Projects
             </button>
         </section>
 

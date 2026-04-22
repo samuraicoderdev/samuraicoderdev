@@ -1,6 +1,6 @@
 # SamuraiCoderDev Landing Page
 
-A minimal landing page built with HTMX and Tailwind CSS, showcasing subprojects as folders.
+A minimal landing page built with HTMX and Tailwind CSS, showcasing projects deployed on Netlify.
 
 ## Philosophy
 
@@ -20,9 +20,10 @@ A minimal landing page built with HTMX and Tailwind CSS, showcasing subprojects 
 ## Project Structure
 
 - `public/` - Static assets served by the HTTP server
-  - `index.html` - Main landing page
-  - `projects/` - HTMX fragments loaded into the landing page
-  - `subprojects/` - Individual subproject folders (each can be a standalone project)
+  - `index.html` - Main landing page with direct Netlify project links
+  - `projects/` - HTMX fragments for project listings  
+  - `netlify-list.html` - Direct links to deployed Netlify projects
+  - `subprojects/` - Source code for individual projects
   - `css/` - Generated Tailwind CSS (output.css)
 - `src/` - Source files for Tailwind CSS
   - `css/input.css` - Tailwind directives
@@ -31,20 +32,37 @@ A minimal landing page built with HTMX and Tailwind CSS, showcasing subprojects 
 
 ## Available Scripts
 
-- `npm run dev` - Start Tailwind watcher and HTTP server concurrently
+- `npm run dev` - Start Tailwind watcher and HTTP server concurrently (port 8080)
 - `npm run tailwind` - Watch Tailwind CSS and rebuild on changes
 - `npm run tailwind-build` - Build Tailwind CSS for production (minified)
 - `npm run serve` - Start static HTTP server on port 8080
 - `npm test` - Placeholder (no tests configured)
 
+## Netlify Deployment Notes
+
+This landing page is designed to work with Netlify deployments:
+- Projects are deployed independently on Netlify
+- No need for local subfolder deployment (projects use external Netlify URLs)
+- Clean separation between source code and deployed applications
+
 ## Usage
 
-The landing page (`public/index.html`) uses HTMX to load project listings from `public/projects/list.html`. Each subproject folder under `public/subprojects/` can contain its own `index.html` and assets, linked from the landing page.
+The landing page (`public/index.html`) uses HTMX to load both local subprojects and deployed Netlify projects:
+- Local subprojects: Loaded from `public/projects/list.html` (for local development)
+- Deployed Netlify projects: Loaded from `public/projects/netlify-list.html` (for live deployment links)
 
-To add a new subproject:
-1. Create a folder in `public/subprojects/` (e.g., `my-new-project`)
-2. Add an `index.html` and any assets needed
-3. Update `public/projects/list.html` to include a link to the new subproject
+## Netlify Deployment Setup
+
+To add a new Netlify-deployed project:
+1. Deploy your project on Netlify
+2. Update `public/projects/netlify-list.html` with the Netlify URL
+3. The source code should remain in `public/subprojects/` for reference
+
+## Local Development vs Production
+- **Local**: Uses subproject folders with their own build systems
+- **Production**: Projects are deployed separately on Netlify with direct URLs
+
+This hybrid approach allows for local development while showcasing live deployed projects.
 
 ## Technology Stack
 
