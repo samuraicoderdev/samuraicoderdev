@@ -18,10 +18,10 @@ importers:
         specifier: ^14.1.1
         version: 14.1.1
       postcss:
-        specifier: ^8.4.38
+        specifier: ^8.5.10
         version: 8.5.10
       tailwindcss:
-        specifier: ^3.4.3
+        specifier: ^3.4.19
         version: 3.4.19
 
 packages:
