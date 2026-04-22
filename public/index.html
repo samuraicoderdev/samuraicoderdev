@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samurai Coder Dev</title>
+    <script src="https://unpkg.com/htmx.org@1.9.12"></script>
+    <link href="/css/output.css" rel="stylesheet">
+</head>
+<body class="flex min-h-screen flex-col items-center justify-center bg-gray-50 text-gray-900 p-4">
+    <div class="w-full max-w-xl space-y-8">
+        <header class="text-center">
+            <h1 class="text-4xl font-bold">Samurai Coder Dev</h1>
+            <p class="mt-2 text-lg text-gray-600">A landing page for subprojects</p>
+        </header>
+
+        <section>
+            <h2 class="text-2xl font-semibold mb-4">Subprojects</h2>
+            <div id="projects-list" class="space-y-4">
+                <!-- Project entries will be loaded via HTMX -->
+                <div class="border rounded-lg p-4 bg-white hover:shadow-md transition-shadow">
+                    <h3 class="font-semibold text-lg">Loading projects...</h3>
+                </div>
+            </div>
+            <button 
+                hx-get="/projects/list.html" 
+                hx-target="#projects-list" 
+                hx-swap="innerHTML"
+                class="mt-6 px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700 transition"
+            >
+                Load Projects
+            </button>
+        </section>
+
+        <footer class="mt-10 text-center text-sm text-gray-500">
+            &copy; <span id="year"></span> Samurai Coder Dev
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

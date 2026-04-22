@@ -1,40 +1,65 @@
-# RoninCSS
+# SamuraiCoderDev Landing Page
 
-A minimalist, utility-first CSS framework. Independent, like a ronin.
-
-RoninCSS is a lightweight and customizable CSS framework inspired by the utility-first approach of TailwindCSS. It gives you the building blocks to design your own components quickly without fighting with opinionated styles.
+A minimal landing page built with HTMX and Tailwind CSS, showcasing subprojects as folders.
 
 ## Philosophy
 
-- **Utility-First:** Compose complex designs directly in your HTML with single-purpose classes.
-- **Customizable:** Everything is driven by a central configuration file (`_variables.scss`). Change your color palette, spacing scale, or breakpoints in one place.
-- **Independent:** No JavaScript, no build tools required in your project (just link the CSS). It's a pure CSS framework.
-- **Predictable:** The classes are simple and do exactly what they say.
+- **Utility-First:** Utilizes Tailwind CSS for rapid UI development without leaving HTML.
+- **Dynamic but Simple:** Uses HTMX for AJAX, CSS transitions, websockets, and server sent events directly in HTML.
+- **Independent:** No complex build pipeline required for basic usage (though Tailwind is used for styling).
+- **Predictable:** Straightforward HTML with minimal JavaScript.
 
 ## Installation
 
-You can include RoninCSS in your project in two ways:
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start development server: `npm run dev`
+   - This runs Tailwind CSS in watch mode and a static HTTP server on port 8080
+4. Visit `http://localhost:8080` in your browser
 
-### 1. Download the CSS
+## Project Structure
 
-Download the `ronin.min.css` file from the `dist/` folder and include it in your HTML:
+- `public/` - Static assets served by the HTTP server
+  - `index.html` - Main landing page
+  - `projects/` - HTMX fragments loaded into the landing page
+  - `subprojects/` - Individual subproject folders (each can be a standalone project)
+  - `css/` - Generated Tailwind CSS (output.css)
+- `src/` - Source files for Tailwind CSS
+  - `css/input.css` - Tailwind directives
+- `tailwind.config.js` - Tailwind configuration
+- `package.json` - npm scripts and dependencies
 
-```html
-<link rel="stylesheet" href="/path/to/ronin.min.css">
+## Available Scripts
 
-<div class="r-flex r-justify-between r-items-center r-p-4 r-bg-primary-500 r-text-white r-rounded-lg">
-  <h1 class="r-text-xl r-font-bold">My Card</h1>
-  <span class="r-bg-white r-text-primary-500 r-px-3 r-py-1 r-rounded-full r-text-sm">New</span>
-</div>
+- `npm run dev` - Start Tailwind watcher and HTTP server concurrently
+- `npm run tailwind` - Watch Tailwind CSS and rebuild on changes
+- `npm run tailwind-build` - Build Tailwind CSS for production (minified)
+- `npm run serve` - Start static HTTP server on port 8080
+- `npm test` - Placeholder (no tests configured)
 
-<div class="r-grid r-grid-cols-1 md:r-grid-cols-2 lg:r-grid-cols-4">
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-  <div>Item 4</div>
-</div>
+## Usage
 
-```
+The landing page (`public/index.html`) uses HTMX to load project listings from `public/projects/list.html`. Each subproject folder under `public/subprojects/` can contain its own `index.html` and assets, linked from the landing page.
+
+To add a new subproject:
+1. Create a folder in `public/subprojects/` (e.g., `my-new-project`)
+2. Add an `index.html` and any assets needed
+3. Update `public/projects/list.html` to include a link to the new subproject
+
+## Technology Stack
+
+- **HTMX** - For dynamic content loading via HTML attributes (loaded from CDN)
+- **Tailwind CSS** - Utility-first CSS framework (built via PostCSS)
+- **PostCSS** - With Autoprefixer for vendor prefixing
+- **HTTP Server** - Simple static server for development
+- **Concurrently** - To run multiple npm scripts simultaneously
+
+## Customization
+
+To customize the Tailwind design:
+1. Edit `tailwind.config.js` to modify theme, colors, etc.
+2. Modify `src/css/input.css` to add custom CSS layers if needed
+3. Run `npm run tailwind` to see changes in real-time during development
 
 
 

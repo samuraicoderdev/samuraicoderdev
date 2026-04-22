@@ -1,22 +1,31 @@
 {
-  "name": "ronincss",
-  "type": "module",
-  "version": "0.3.17",
+  "name": "samuraicoderdev",
+  "version": "1.0.0",
+  "description": "A minimalist, utility-first CSS framework. Independent, like a ronin.",
+  "main": "index.js",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind": "tailwindcss -i ./src/css/input.css -o ./public/css/output.css --watch",
+    "tailwind-build": "tailwindcss -i ./src/css/input.css -o ./public/css/output.css",
+    "serve": "http-server ./public -p 8080",
+    "dev": "concurrently \"npm run tailwind\" \"npm run serve\""
   },
-  "dependencies": {
-    "@astrojs/starlight": "0.38.3",
-    "astro": "6.1.8",
-    "sharp": "^0.34.5"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samuraicoderdev/samuraicoderdev.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samuraicoderdev/samuraicoderdev/issues"
+  },
+  "homepage": "https://github.com/samuraicoderdev/samuraicoderdev#readme",
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^8.0.0",
     "autoprefixer": "^10.5.0",
-    "cssnano": "^7.1.7"
+    "concurrently": "^8.2.2",
+    "http-server": "^14.1.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
   }
 }
