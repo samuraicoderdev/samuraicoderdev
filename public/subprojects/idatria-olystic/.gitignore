@@ -1,0 +1,17 @@
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+.directory/
+.megaignore
+.cursor/
+.astro/
+.vscode/
+.env-example
+.env.example
+# Local Netlify folder
+.netlify
