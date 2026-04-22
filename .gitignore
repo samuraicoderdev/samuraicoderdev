@@ -6,6 +6,10 @@ out
 dist
 *.tgz
 
+.directory
+.megaignore
+.mega
+
 # code coverage
 coverage
 *.lcov
